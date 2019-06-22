@@ -70,9 +70,25 @@ public class BancoDeDados {
                 .append("Data de Entrada", visitante.getDataEntrada());
         return documento;
     }
+    public Document inserirFuncionario(Funcionario funcionario){
+        database = DB.getDatabase("Funcionario");
+        Document documento = new Document("Nome", funcionario.getName())
+                .append("Data de Nascimento", funcionario.getDataNascimento())
+                .append("Documento", funcionario.getDoc().getNumeroDoc())
+                .append("Tipo", funcionario.getDoc().getTipoDoc())
+                .append("Usuário", funcionario.getUsuario())
+                .append("Senha", funcionario.getSenha())
+                .append("Período", funcionario.getPeriodo());
+        return documento;
+    }
     
     public void Add(Document doc){
         collection = database.getCollection("Visitante");
+        collection.insertOne(doc);
+    }
+    
+    public void AddFuncionario(Document doc){
+        collection = database.getCollection("Funcionario");
         collection.insertOne(doc);
     }
     
@@ -88,6 +104,23 @@ public class BancoDeDados {
         database = DB.getDatabase("Visitante");
         collection = database.getCollection("Visitante");
         Document busca = new Document("Documento", doc);
+        Object encontrado = collection.find(busca).first();
+        return (Document)encontrado;
+    }
+    
+    public Document buscaDocFunc(String doc){
+        database = DB.getDatabase("Funcionario");
+        collection = database.getCollection("Funcionario");
+        Document busca = new Document("Documento", doc);
+        Object encontrado = collection.find(busca).first();
+        return (Document)encontrado;
+    }
+    
+    public Document validacaoFuncionario(String usuario, String senha){
+        database = DB.getDatabase("Funcionario");
+        collection = database.getCollection("Funcionario");
+        Document busca = new Document("Usuário", usuario)
+                .append("Senha", senha);
         Object encontrado = collection.find(busca).first();
         return (Document)encontrado;
     }

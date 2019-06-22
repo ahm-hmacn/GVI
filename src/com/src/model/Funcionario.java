@@ -8,14 +8,24 @@ import java.util.Date;
 public class Funcionario extends Pessoa{
     
     //atributos
-    private String periodo;
+    private String usuario;
     private String senha;
+    private String periodo;
     
     //Construtor
-    public Funcionario(String nome, String dataNascimento, Documento doc, String periodo, String senha){
+    public Funcionario(String nome, String dataNascimento, Documento doc, String usuario, String senha, String periodo){
         super (nome, dataNascimento, doc);
+        this.usuario = usuario;
         this.periodo = periodo;
         this.senha = senha;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
     
     //Gets e Sets

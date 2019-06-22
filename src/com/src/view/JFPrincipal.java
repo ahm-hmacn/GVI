@@ -23,9 +23,10 @@ public class JFPrincipal extends javax.swing.JFrame {
      * Creates new form JFPrincipal
      */
     JPanel panel = new JPanel();
+    JPInicio painelIni = new JPInicio();
     JPCadastro painelC = new JPCadastro();
     MongoClient teste = MongoClients.create("mongodb://localhost:27017");
-    
+    JPFuncionario painelF = new JPFuncionario();
     public JFPrincipal() {
         initComponents(); 
         this.setSize(500, 600);
@@ -44,7 +45,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         mnMenu = new javax.swing.JMenu();
         mnItemCadastro = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnItemFuncionario = new javax.swing.JMenuItem();
         mnItemRelatorio = new javax.swing.JMenuItem();
         mnItemSair = new javax.swing.JMenuItem();
         mnItemDesenvolvedores = new javax.swing.JMenu();
@@ -62,6 +63,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 
         mnMenu.setText("Menu");
 
+        mnItemCadastro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK));
         mnItemCadastro.setText("Visitantes");
         mnItemCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,13 +72,14 @@ public class JFPrincipal extends javax.swing.JFrame {
         });
         mnMenu.add(mnItemCadastro);
 
-        jMenuItem1.setText("Funcionários");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mnItemFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_MASK));
+        mnItemFuncionario.setText("Funcionários");
+        mnItemFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnItemFuncionarioActionPerformed(evt);
             }
         });
-        mnMenu.add(jMenuItem1);
+        mnMenu.add(mnItemFuncionario);
 
         mnItemRelatorio.setText("Relatório");
         mnMenu.add(mnItemRelatorio);
@@ -99,9 +102,11 @@ public class JFPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mnItemFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemFuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        this.setContentPane(painelIni);
+        this.painelIni.setVisible(true);
+    }//GEN-LAST:event_mnItemFuncionarioActionPerformed
 
     private void mnItemCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemCadastroActionPerformed
         // TODO add your handling code here:
@@ -147,10 +152,10 @@ public class JFPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem mnItemCadastro;
     private javax.swing.JMenu mnItemDesenvolvedores;
+    private javax.swing.JMenuItem mnItemFuncionario;
     private javax.swing.JMenuItem mnItemRelatorio;
     private javax.swing.JMenuItem mnItemSair;
     private javax.swing.JMenu mnMenu;

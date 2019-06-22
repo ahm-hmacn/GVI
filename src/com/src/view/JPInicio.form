@@ -26,8 +26,8 @@
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cmpSenha" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cmpUsuario" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnEntrar" alignment="0" pref="347" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -40,11 +40,11 @@
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtUsuario" min="-2" max="-2" attributes="0"/>
+              <Component id="cmpUsuario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblSenha" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtSenha" min="-2" max="-2" attributes="0"/>
+              <Component id="cmpSenha" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnEntrar" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="49" max="32767" attributes="0"/>
@@ -61,7 +61,7 @@
         <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUsuario">
+    <Component class="javax.swing.JTextField" name="cmpUsuario">
     </Component>
     <Component class="javax.swing.JLabel" name="lblSenha">
       <Properties>
@@ -71,7 +71,7 @@
         <Property name="text" type="java.lang.String" value="Senha"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtSenha">
+    <Component class="javax.swing.JPasswordField" name="cmpSenha">
     </Component>
     <Component class="javax.swing.JButton" name="btnEntrar">
       <Properties>
