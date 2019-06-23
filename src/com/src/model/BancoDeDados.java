@@ -122,6 +122,7 @@ public class BancoDeDados {
         Document busca = new Document("Usuário", usuario)
                 .append("Senha", senha);
         Object encontrado = collection.find(busca).first();
+        encontrado.toString();
         return (Document)encontrado;
     }
     

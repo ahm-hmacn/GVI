@@ -103,9 +103,10 @@ public class JFPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnItemFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemFuncionarioActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:JPInicio pass = new JPInicio();
+        painelIni.setVisible(false);
         this.setContentPane(painelIni);
-        this.painelIni.setVisible(true);
+        painelIni.setVisible(true); 
     }//GEN-LAST:event_mnItemFuncionarioActionPerformed
 
     private void mnItemCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemCadastroActionPerformed

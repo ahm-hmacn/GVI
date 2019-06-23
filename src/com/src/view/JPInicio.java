@@ -110,7 +110,12 @@ public class JPInicio extends javax.swing.JPanel {
         senha = String.valueOf(cmpSenha.getPassword());
         busca = bd.validacaoFuncionario(usuario, senha);
         if (busca.get("Usuário").equals(usuario) && busca.get("Senha").equals(senha)){
+            System.out.println(busca.get("Usuário"));
+            this.setVisible(false);
             principal.setContentPane(painelF);
+            painelF.setVisible(true); 
+        } else {
+            System.out.println("Usuário ou senha incorreto.");
         }
         cmpUsuario.setText("");
         cmpSenha.setText("");
