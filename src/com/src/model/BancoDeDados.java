@@ -14,8 +14,6 @@ import com.mongodb.Block;
 import com.mongodb.ClientSessionOptions;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.model.Aggregates;
-import com.mongodb.client.model.Filters;
-import static com.mongodb.client.model.Filters.text;
 import com.mongodb.client.model.Projections;
 import org.bson.Document;
 import java.util.ArrayList;
@@ -24,6 +22,21 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 import org.bson.conversions.Bson;
+import com.mongodb.Block;
+import com.mongodb.DBObject;
+ import com.mongodb.client.MongoClients;
+ import com.mongodb.client.MongoClient;
+ import com.mongodb.client.MongoCollection;
+ import com.mongodb.client.MongoDatabase;
+
+ import com.mongodb.client.model.Indexes;
+ import com.mongodb.client.model.Filters;
+import static com.mongodb.client.model.Filters.*;
+ import com.mongodb.client.model.Sorts;
+ import com.mongodb.client.model.TextSearchOptions;
+ import com.mongodb.client.model.Projections;
+import java.util.regex.Pattern;
+ import org.bson.Document;
 
 /**
  *
@@ -40,7 +53,7 @@ public class BancoDeDados {
     /*private Block<Document> printBlock = new Block<Document>() {
         @Override
         public void apply(final Document t) {
-            System.out.println(documento.toJson());            
+            System.out.println(t.toJson());            
         }
     };*/
     private Consumer<Document> printBlock = new Consumer<Document>() {
@@ -98,6 +111,13 @@ public class BancoDeDados {
         Document busca = new Document("Nome", nome);
         Object encontrado = collection.find(busca).first();
         return (Document)encontrado;
+    }
+    
+    public FindIterable<Document> buscaNome2(String nome){
+        database = DB.getDatabase("Visitante");
+        collection = database.getCollection("Visitante");
+        FindIterable<Document> busca = collection.find(Filters.regex("Nome", Pattern.quote(nome)));
+        return busca;
     }
     
     public Document buscaDoc(String doc){

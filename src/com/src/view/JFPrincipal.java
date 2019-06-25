@@ -12,6 +12,7 @@ import com.mongodb.client.MongoDatabase;
 import com.src.model.BancoDeDados;
 import com.src.view.JPCadastro;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 /**
  *
@@ -27,6 +28,8 @@ public class JFPrincipal extends javax.swing.JFrame {
     JPCadastro painelC = new JPCadastro();
     MongoClient teste = MongoClients.create("mongodb://localhost:27017");
     JPFuncionario painelF = new JPFuncionario();
+    public JTable tblVisitante = new JTable();
+    
     public JFPrincipal() {
         initComponents(); 
         this.setSize(500, 600);

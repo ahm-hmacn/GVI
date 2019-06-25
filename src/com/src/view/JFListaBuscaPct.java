@@ -9,12 +9,12 @@ package com.src.view;
  *
  * @author x002559
  */
-public class ListaBusca extends javax.swing.JFrame {
+public class JFListaBuscaPct extends javax.swing.JFrame {
 
     /**
      * Creates new form ListaBusca
      */
-    public ListaBusca() {
+    public JFListaBuscaPct() {
         initComponents();
     }
 

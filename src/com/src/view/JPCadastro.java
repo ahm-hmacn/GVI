@@ -8,6 +8,7 @@ package com.src.view;
 import com.mongodb.BasicDBObject;
 import com.mongodb.Block;
 import com.mongodb.DBObject;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.src.model.*;
@@ -41,11 +42,11 @@ public class JPCadastro extends javax.swing.JPanel {
     private Calendar dataInicial = Calendar.getInstance();
     private DocumentFilter filter = new UppercaseDocumentFilter();
     private Document data;
-    DBObject dbObj;
+    private Document tblBusca;
     private Consumer<Document> printBlock = new Consumer<Document>() {
         @Override
         public void accept(Document t) {            
-            System.out.println(data.toJson());
+            tblBusca = t;
         }
     };
     /*private Block<Document> printBlock = new Block<Document>() {
@@ -317,11 +318,10 @@ public class JPCadastro extends javax.swing.JPanel {
             
             nome = cmpNome.getText();
             
-            data = database.buscaNome(nome);
-            System.out.println(data.size());
-            String jsonString = data.toJson();
-            data = Document.parse(jsonString);;
+            FindIterable<Document> dataT = database.buscaNome2(nome);
+            dataT.forEach(printBlock);
             
+            /*
             cmpDtNasc.setText((String)data.get("Data de Nascimento"));
             cmpDocumento.setText((String)data.get("Documento"));
             cmpListaDoc.setSelectedItem((String)data.get("Tipo"));
