@@ -46,7 +46,10 @@ public class JPCadastro extends javax.swing.JPanel {
     private Consumer<Document> printBlock = new Consumer<Document>() {
         @Override
         public void accept(Document t) {            
-            tblBusca = t;
+            ArrayList<String> teste = new ArrayList();
+            teste.add(t.toJson());
+            JFListaVst tela = new JFListaVst(teste);
+            tela.setVisible(true);
         }
     };
     /*private Block<Document> printBlock = new Block<Document>() {

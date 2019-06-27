@@ -5,20 +5,29 @@
  */
 package com.src.view;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Administrador
  */
 public class JFListaVst extends javax.swing.JFrame {
-
+    private ArrayList<String> filtrados;
     /**
      * Creates new form JFListaPct
      */
     
-    public JFListaVst() {
+    public JFListaVst(ArrayList<String> filtrados) {
         initComponents();
+        this.filtrados = filtrados;
+        start();
     }
-
+    
+    private void start(){
+        for(String a: filtrados){
+            System.out.println(a);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
